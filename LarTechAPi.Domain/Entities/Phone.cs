@@ -8,7 +8,6 @@ namespace LarTechAPi.Domain.Entities
         {
             ValidateDomain(phoneType, phoneNumber);
         }
-
         public Phone(int id, string phoneType, string phoneNumber)
         {
             DomainExceptionValidation.When(id < 0, "valor de Id inválido.");
@@ -27,6 +26,9 @@ namespace LarTechAPi.Domain.Entities
 
             DomainExceptionValidation.When(string.IsNullOrEmpty(phoneNumber), "Phone number is required");
             DomainExceptionValidation.When(phoneType.Length != 10 || phoneType.Length != 11, "Phone number invalid");
+
+            PhoneType = phoneType;
+            PhoneNumber = phoneNumber;
         }
     }
 }
