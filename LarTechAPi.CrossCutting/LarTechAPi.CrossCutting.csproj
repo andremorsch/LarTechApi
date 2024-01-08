@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LarTechAPi.Application\LarTechAPi.Application.csproj" />
+    <ProjectReference Include="..\LarTechAPi.Domain\LarTechAPi.Domain.csproj" />
+    <ProjectReference Include="..\LarTechAPi.Infrastructure\LarTechAPi.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
