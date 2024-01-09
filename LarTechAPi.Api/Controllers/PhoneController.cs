@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LarTechAPi.Api.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class PhoneController : ControllerBase
     {
         private readonly IPhoneService _phoneService;
