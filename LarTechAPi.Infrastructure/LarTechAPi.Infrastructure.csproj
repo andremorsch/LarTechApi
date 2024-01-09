@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -8,12 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LarTechAPi.Domain\LarTechAPi.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Context\" />
-    <Folder Include="EntitiesConfiguration\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
