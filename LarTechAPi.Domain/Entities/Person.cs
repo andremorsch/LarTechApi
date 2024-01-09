@@ -22,6 +22,7 @@ namespace LarTechAPi.Domain.Entities
         public string Name { get; private set; }
         public DateTime Birthday { get; private set; }
         public bool IsActive { get; private set; }
+        public ICollection<Phone> Phones { get; set; }
 
         public void StatusUpdate(bool isActive)
         {

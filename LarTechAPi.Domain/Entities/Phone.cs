@@ -18,6 +18,8 @@ namespace LarTechAPi.Domain.Entities
         public int Id { get; private set; }
         public string PhoneType { get; private set; }
         public string PhoneNumber { get; private set; }
+        public int PersonId { get; set; }
+        public Person Person { get; set; }
 
         private void ValidateDomain (string phoneType, string phoneNumber)
         {
