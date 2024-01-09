@@ -46,27 +46,86 @@ namespace LarTechAPi.Application.Services
                 var person = await _personRepository.GetPersonByIdAsync(id.Value);
                 await _personRepository.DeletePersonAsync(person);
 
+                return new ResultService<PersonDTO>(200, true, "Success", null);
+            }
+            catch (Exception ex)
+            {
+                return new ResultService<PersonDTO>(500, false, ex.Message, null);
             }
         }
 
         public async Task<ResultService<IEnumerable<PersonDTO>>> GetPeople()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var people = await _personRepository.GetPeopleAsync();
+                var result = _mapper.Map<IEnumerable<PersonDTO>>(people);
+
+                return new ResultService<IEnumerable<PersonDTO>>(200, true, "Success", result);
+            }
+            catch (Exception ex)
+            {
+                return new ResultService<IEnumerable<PersonDTO>>(500, false, ex.Message, null);
+            }
         }
 
-        public Task<ResultService<PersonDTO>> GetPersonByCpf(string cpf)
+        public async Task<ResultService<PersonDTO>> GetPersonByCpf(string cpf)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var person = await _personRepository.GetPersonByCpfAsync(cpf);
+
+                if (person is null)
+                    return new ResultService<PersonDTO>(404, false, "Not Found", null);
+
+                var result = _mapper.Map<PersonDTO>(person);
+
+                return new ResultService<PersonDTO>(200, true, "Success", result);
+            }
+            catch (Exception ex)
+            {
+                return new ResultService<PersonDTO>(500, false, ex.Message, null);
+            }
         }
 
         public async Task<ResultService<PersonDTO>> GetPersonById(int? id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var person = await _personRepository.GetPersonByIdAsync(id.Value);
+
+                if (person is null)
+                    return new ResultService<PersonDTO>(404, false, "Not Found", null);
+
+                var result = _mapper.Map<PersonDTO>(person);
+
+                return new ResultService<PersonDTO>(200, true, "Success", result);
+            }
+            catch (Exception ex)
+            {
+                return new ResultService<PersonDTO>(500, false, ex.Message, null);
+            }
         }
 
         public async Task<ResultService<PersonDTO>> UpdatePerson(PersonDTO personDTO)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var update = await _personRepository.GetPersonByIdAsync(personDTO.Id);
+
+                if (update is null)
+                    return new ResultService<PersonDTO>(404, false, "Not Found", null);
+
+                var person = _mapper.Map<Person>(personDTO);
+
+                var newPerson = await _personRepository.UpdatePersonAsync(person);
+
+                return new ResultService<PersonDTO>(200, true, "Success", _mapper.Map<PersonDTO>(newPerson));
+            }
+            catch (Exception ex)
+            {
+                return new ResultService<PersonDTO>(500, false, ex.Message, null);
+            }
         }
     }
 }
