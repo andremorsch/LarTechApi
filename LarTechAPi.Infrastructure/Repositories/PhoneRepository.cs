@@ -9,6 +9,11 @@ namespace LarTechAPi.Infrastructure.Repositories
     {
         private ApplicationDbContext _context;
 
+        public PhoneRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public async Task<Phone> CreatePhoneAsync(Phone phone)
         {
             _context.Phones.Add(phone);

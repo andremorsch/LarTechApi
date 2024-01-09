@@ -3,11 +3,6 @@ using LarTechAPi.Application.DTOs;
 using LarTechAPi.Application.Interfaces;
 using LarTechAPi.Domain.Entities;
 using LarTechAPi.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LarTechAPi.Application.Services
 {
