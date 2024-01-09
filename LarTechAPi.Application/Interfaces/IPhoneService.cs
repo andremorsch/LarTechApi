@@ -1,13 +1,14 @@
 ﻿using LarTechAPi.Application.DTOs;
+using LarTechAPi.Application.Services;
 
 namespace LarTechAPi.Application.Interfaces
 {
     public interface IPhoneService
     {
-        Task<IEnumerable<PhoneDTO>> GetPhones();
-        Task<PhoneDTO> GetPhoneById(int? id);
-        Task<PhoneDTO> CreatePhone(PhoneDTO phoneDTO);
-        Task UpdatePhone(PhoneDTO phoneDTO);
-        Task DeletePhone(int? id);
+        Task<ResultService<IEnumerable<PhoneDTO>>> GetPhones();
+        Task<ResultService<PhoneDTO>> GetPhoneById(int? id);
+        Task<ResultService<PhoneDTO>> CreatePhone(PhoneDTO phoneDTO);
+        Task<ResultService<PhoneDTO>> UpdatePhone(PhoneDTO phoneDTO);
+        Task<ResultService<PhoneDTO>> DeletePhone(int? id);
     }
 }
