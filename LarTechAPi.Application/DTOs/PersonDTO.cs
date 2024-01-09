@@ -11,6 +11,11 @@ namespace LarTechAPi.Application.DTOs
         [MaxLength(50, ErrorMessage = "Name invalid")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "Cpf is required")]
+        [MinLength(11, ErrorMessage = "Cpf invalid")]
+        [MaxLength(11, ErrorMessage = "Cpf invalid")]
+        public string Cpf { get; set; }
+
         [Required(ErrorMessage = "Birthday is required")]
         public DateTime Birthday { get; set; }
 
