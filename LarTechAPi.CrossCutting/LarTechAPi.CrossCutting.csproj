@@ -12,4 +12,8 @@
     <ProjectReference Include="..\LarTechAPi.Infrastructure\LarTechAPi.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="IoC\" />
+  </ItemGroup>
+
 </Project>
