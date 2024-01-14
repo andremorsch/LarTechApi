@@ -10,7 +10,7 @@ namespace LarTechAPi.Domain.Entities
         }
         public Phone(int id, string phoneType, string phoneNumber, int personId)
         {
-            DomainExceptionValidation.When(id < 0, "valor de Id inválido.");
+            DomainExceptionValidation.When(id <= 0, "Invalid ID");
             Id = id;
             ValidateDomain(phoneType, phoneNumber, personId);
         }
