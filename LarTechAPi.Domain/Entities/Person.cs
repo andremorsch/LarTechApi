@@ -11,7 +11,7 @@ namespace LarTechAPi.Domain.Entities
 
         public Person(int id, string name, string cpf, DateTime birthday, bool isActive)
         {
-            DomainExceptionValidation.When(id < 0, "valor de Id inválido.");
+            DomainExceptionValidation.When(id <= 0, "valor de Id inválido.");
             Id = id;
             ValidateDomain(name, cpf, birthday, isActive);
         }
