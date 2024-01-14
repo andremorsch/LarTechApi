@@ -28,7 +28,7 @@ namespace LarTechAPi.Domain.Entities
 
             DomainExceptionValidation.When(string.IsNullOrEmpty(phoneNumber), "Phone number is required");
 
-            DomainExceptionValidation.When(personId < 0, "Person id invalid");
+            DomainExceptionValidation.When(personId <= 0, "Person id invalid");
 
             PhoneType = phoneType;
             PhoneNumber = phoneNumber;
